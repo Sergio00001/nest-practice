@@ -11,7 +11,7 @@ const typeormModule = TypeOrmModule.forRootAsync({
   useFactory: (configService: ConfigService): TypeOrmModuleOptions => ({
     ...configService.typeormConfig,
     namingStrategy: new SnakeNamingStrategy(),
-    synchronize: true,
+    synchronize: false,
     type: 'postgres',
     autoLoadEntities: true,
   }),

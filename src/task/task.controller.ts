@@ -6,8 +6,6 @@ import {
   Param,
   Patch,
   Post,
-  UsePipes,
-  ValidationPipe,
 } from '@nestjs/common';
 import { TaskService } from './task.service';
 import { TaskCreateDto } from './dto/task-create.dto';
@@ -47,7 +45,6 @@ export class TaskController {
 
   @Post()
   @ApiResponse({ status: 201, type: TaskResponseDto })
-  @UsePipes(new ValidationPipe())
   async create(
     @Body() dto: TaskCreateDto,
   ): Promise<{ success: true; data: TaskResponseDto }> {
@@ -61,7 +58,6 @@ export class TaskController {
 
   @Patch(':id')
   @ApiResponse({ status: 200 })
-  @UsePipes(new ValidationPipe())
   async updateStatus(
     @Param('id') id: string,
     @Body() dto: TaskStatusUpdateDto,

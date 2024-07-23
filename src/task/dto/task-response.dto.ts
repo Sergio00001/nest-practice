@@ -1,5 +1,4 @@
 import { IsBoolean, IsString } from 'class-validator';
-import { Exclude } from 'class-transformer';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class TaskResponseDto {
@@ -14,13 +13,4 @@ export class TaskResponseDto {
   @IsBoolean()
   @ApiProperty({ example: false })
   isCompleted: boolean;
-
-  @Exclude()
-  createdAt: Date;
-
-  @Exclude()
-  updatedAt: Date;
-
-  @Exclude()
-  deletedAt: Date | null;
 }
